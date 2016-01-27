@@ -1,7 +1,8 @@
 angular.module('myApp',
     ['ngCookies',
     'ngRoute',
-    'app.Login',
+    'appLogin',
+    'appRPC',
 //    'app.Dashboard',
 ])
 .config(['$routeProvider', function($routeProvider) {

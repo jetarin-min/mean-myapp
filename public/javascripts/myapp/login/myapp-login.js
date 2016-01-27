@@ -1,28 +1,29 @@
-angular.module('app.Login', ['ngRoute'])
+angular.module('appLogin', ['ngRoute','appRPC'])
 .config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/login', {
         templateUrl: '/templates/login.html',
         controller: 'loginController'
     });
 }])
-.controller('loginController', function($scope, $location) {
+.controller('loginController', function($scope, $location, rpc) {
     $scope.init = function() {
         console.log("Login Initializing...");
         $scope.error = "";
     }
     $scope.init();
 
-/*
     $scope.login = function() {
         var data = {
             "login": $scope.username,
             "password": $scope.password,
-            "db_name": "tour",
+            "db_name": "node_test",
         };
         var opt = {
             "context": {"data": data},
         };
-        rpc.execute('login','login',[],opt)
+
+        var args = [$scope.username, $scope.password, "node_test"];
+        rpc.execute('login','login',args,opt)
         .then(function(data) {
             //console.log("Login Created");
             //console.log(data);
@@ -42,7 +43,6 @@ angular.module('app.Login', ['ngRoute'])
             //console.log(error);
         });
     };
-*/
 
 });
 
