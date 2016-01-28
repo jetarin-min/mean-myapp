@@ -43,11 +43,16 @@ router.use(function(req, res, next) {
 router.get('/user', function(req, res, next) {
     User.find(function(err, users) {
         if (err){
-            res.send(err);
+            res.send({
+                message: err,
+                success: false,
+            });
         }
-
-        res.json(users);
-        console.log(users);
+        res.json({
+            message: "Get users",
+            success: true,
+            data: users,
+        });
     });
 })
 .post('/user', function(req, res, next) {

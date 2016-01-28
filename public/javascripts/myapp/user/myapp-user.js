@@ -17,6 +17,14 @@ angular.module('appUser', ['ngRoute', 'ngCookies'])
         console.log("User Initializing...");
         $scope.error = "";
         $scope.flash = "";
+        $http.get('/api/user').success(function(response){
+            if(response.success){
+                $scope.users = response.data;
+            }
+            else {
+                $scope.error = response.message;
+            } 
+        });
     }
     $scope.init();
 
