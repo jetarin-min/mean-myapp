@@ -8,29 +8,25 @@ var config = require('../config');
 var bodyParser = require("body-parser");
 router.use(bodyParser.urlencoded({ extended: false }));
 
-/* GET home page. */
-
 var User = require('../models/user');
 
 router.use(function(req, res, next) {
     //var token = req.body.token || req.query.token || req.headers['x-access-token'] || req.cookies.token;
     var token = req.cookies.token;
     if (token) {
-        // verifies secret and checks exp
+        //Check token
         jwt.verify(token, config.secret, function(err, decoded) {      
-            if (err) {
+            if (err) { //Wrong token
                 return res.json({ success: false, message: 'Failed to authenticate token.' });    
             }
             else {
-                // if everything is good, save to request for use in other routes
                 req.decoded = decoded;    
                 next();
             }
         });
     }
     else {
-        // if there is no token
-        // return an error
+        // Missing token
         /*
         return res.status(403).send({ 
             success: false, 
@@ -67,7 +63,7 @@ router.get('/user', function(req, res, next) {
         else{
             var user = new User();
             user.username = req.body.username;
-            user.password = req.body.password;
+            user.password = req.body.password; //TODO Encrypt-Decrypt password
             user.admin = true;
             user.save(function(err) {
                 if (err){

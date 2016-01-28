@@ -1,8 +1,15 @@
-angular.module('appUser', ['ngRoute'])
+angular.module('appUser', ['ngRoute', 'ngCookies'])
 .config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/user', {
+        resolve: {
+            "check": function($cookies, $location){
+                if(!$cookies.get("token")){
+                    $location.path("/login");
+                }
+            }
+        },
+        controller: 'userController',
         templateUrl: '/templates/user.html',
-        controller: 'userController'
     });
 }])
 .controller('userController', function($scope, $location, $http) {

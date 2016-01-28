@@ -20,21 +20,18 @@ router.post('/login', function(req, res) {
             res.json({ success: false, message: 'Authentication failed. User not found.' });
         } 
         else if (user) {
-        // check if password matches
-            if (user.password != req.body.password) {
+            // check if password matches
+            if (user.password != req.body.password) { //TODO Decrypt-Encrypt password
                 res.json({ success: false, message: 'Authentication failed. Wrong password.' });
                 console.log("Invalid Login");
             }
             else {
                 console.log("User "+user.name+" Logged In");
-                // if user is found and password is right
-                // create a token
                 var token = jwt.sign(user, config.secret,{
                     expiresInMinutes: 1440 // expires in 24 hours
                 });
-                console.log("TOKEN:"+token);
+                console.log("TOKEN Generated:"+token);
 
-                // return the information including token as JSON
                 res.json({
                     success: true,
                     message: 'Authentication success',

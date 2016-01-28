@@ -2,7 +2,6 @@ angular.module('myApp',
     ['ngCookies',
     'ngRoute',
     'appLogin',
-    'appRPC',
     'appUser',
 //    'app.Dashboard',
 ])
@@ -22,11 +21,11 @@ angular.module('myApp',
     .when('/logout', {
         resolve: {
             "check": function($cookies, $location) {
-                if($cookies.get("user_id")){
+                if($cookies.get("token")){
                     alert("You have been Logout");
                 }
-                $cookies.remove("user_name");
-                $cookies.remove("user_id");
+                //$cookies.remove("user_name");
+                //$cookies.remove("user_id");
                 $cookies.remove("token");
                 $location.path("/login");
             }

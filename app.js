@@ -6,13 +6,12 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
+//Connect to mongo DB
 var config = require('./config');
 mongoose.connect(config.database);
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 var ui = require('./routes/ui');
-var json_rpc = require('./routes/json_rpc');
 var api = require('./routes/api');
 var authen = require('./routes/authen');
 
@@ -23,8 +22,6 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// set secret token
-//app.set('superSecret', config.secret);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -35,9 +32,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
 app.use('/ui', ui);
-app.use('/json_rpc', json_rpc);
 app.use('/api', api);
 app.use('/authen', authen);
 
