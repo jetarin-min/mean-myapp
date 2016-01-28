@@ -3,6 +3,7 @@ angular.module('myApp',
     'ngRoute',
     'appLogin',
     'appRPC',
+    'appUser',
 //    'app.Dashboard',
 ])
 .config(['$routeProvider', function($routeProvider) {

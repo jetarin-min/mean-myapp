@@ -16,6 +16,7 @@ router.post('/', function(req, res, next) {
         console.log("Model: "+model_name+"| Method: "+ method +"| Args: "+args);
 
         var model = require("../models/"+model_name);
+        model.show_all_user();
     }
 });
 
