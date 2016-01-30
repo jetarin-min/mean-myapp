@@ -3,7 +3,7 @@ angular.module('myApp',
     'ngRoute',
     'appLogin',
     'appUser',
-//    'app.Dashboard',
+    'appNote',
 ])
 .config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/', {
@@ -24,8 +24,8 @@ angular.module('myApp',
                 if($cookies.get("token")){
                     alert("You have been Logout");
                 }
-                //$cookies.remove("user_name");
-                //$cookies.remove("user_id");
+                $cookies.remove("username");
+                $cookies.remove("userid");
                 $cookies.remove("token");
                 $location.path("/login");
             }

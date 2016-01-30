@@ -21,6 +21,8 @@ angular.module('appLogin', ['ngRoute'])
             console.log(response);
             if (response.success){
                 document.cookie="token="+response.token+"; path=/";
+                document.cookie="userid="+response.userid+"; path=/";
+                document.cookie="username="+response.username+"; path=/";
                 $location.path("/product");
             }
             else{

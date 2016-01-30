@@ -1,6 +1,6 @@
-angular.module('appUser', ['ngRoute', 'ngCookies'])
+angular.module('appNote', ['ngRoute', 'ngCookies'])
 .config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/user', {
+    $routeProvider.when('/note', {
         resolve: {
             "check": function($cookies, $location){
                 if(!$cookies.get("token")){
@@ -8,15 +8,16 @@ angular.module('appUser', ['ngRoute', 'ngCookies'])
                 }
             }
         },
-        controller: 'userController',
-        templateUrl: '/templates/user.html',
+        controller: 'noteController',
+        templateUrl: '/templates/note.html',
     });
 }])
-.controller('userController', function($scope, $location, $http) {
-    function load_users(){
-        $http.get('/api/user').success(function(response){
+.controller('noteController', function($scope, $location, $http, $cookies) {
+    function load_notes(){
+        var userid = $cookies.get('userid');
+        $http.get('/api/note/'+userid).success(function(response){
             if(response.success){
-                $scope.users = response.data;
+                $scope.notes = response.data;
             }
             else {
                 $scope.error = response.message;
@@ -24,20 +25,22 @@ angular.module('appUser', ['ngRoute', 'ngCookies'])
         });
     }
     $scope.init = function() {
-        console.log("User Initializing...");
+        console.log("Note Initializing...");
         $scope.error = "";
         $scope.flash = "";
-        load_users();
+        load_notes();
     }
     $scope.init();
 
-    $scope.create_user = function() {
-        $http.post('/api/user', $scope.user).success(function(response){
+
+    $scope.create_note = function() {
+        $scope.note.uid = $cookies.get('userid');
+        $http.post('/api/note', $scope.note).success(function(response){
             console.log(response);
             if(response.success){
                 $scope.flash = response.message;
                 $scope.error = "";
-                load_users();
+                load_notes();
             }
             else{
                 $scope.error = response.message;

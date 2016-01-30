@@ -27,7 +27,7 @@ router.post('/login', function(req, res) {
             }
             else {
                 console.log("User "+user.name+" Logged In");
-                var token = jwt.sign(user, config.secret,{
+                var token = jwt.sign(user, config.secret+user._id,{
                     expiresInMinutes: 1440 // expires in 24 hours
                 });
                 console.log("TOKEN Generated:"+token);
@@ -35,7 +35,9 @@ router.post('/login', function(req, res) {
                 res.json({
                     success: true,
                     message: 'Authentication success',
-                    token: token
+                    token: token,
+                    username: user.username,
+                    userid: user._id,
                 });
             }   
         }
