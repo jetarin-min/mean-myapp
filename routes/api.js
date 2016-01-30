@@ -10,6 +10,7 @@ router.use(bodyParser.urlencoded({ extended: false }));
 
 var User = require('../models/user');
 var Note = require('../models/note');
+var Product = require('../models/product');
 
 router.use(function(req, res, next) {
     //var token = req.body.token || req.query.token || req.headers['x-access-token'] || req.cookies.token;
@@ -41,12 +42,12 @@ router.use(function(req, res, next) {
         });
     }
 });
-
+//User
 router.get('/user', function(req, res, next) {
     User.find(function(err, users) {
         if (err){
             res.send({
-                message: err,
+                message: err.message,
                 success: false,
             });
         }
@@ -58,6 +59,7 @@ router.get('/user', function(req, res, next) {
     });
 });
 router.post('/user', function(req, res, next) {
+    /*
     User.findOne({
         username: req.body.username,
     }, function(err, user) {
@@ -83,8 +85,27 @@ router.post('/user', function(req, res, next) {
             });
         }
     });
+    */
+    var user = new User();
+    user.username = req.body.username;
+    user.password = req.body.password; //TODO Encrypt-Decrypt password
+    user.save(function(err) {
+        if (err){
+            console.log("#############");
+            console.log(err);
+            console.log("#############");
+            res.send({
+                message: err.message,
+                success: false,
+            });
+        }
+        res.json({
+            message: 'User created!',
+            success: true,
+        });
+    });
 })
-
+//Note
 router.get('/note/:uid', function(req, res, next) {
     var uid = req.params.uid;
     console.log(uid);
@@ -93,7 +114,7 @@ router.get('/note/:uid', function(req, res, next) {
         function(err, notes) {
             if (err){
                 res.send({
-                    message: err,
+                    message: err.message,
                     success: false,
                 });
             }
@@ -111,8 +132,11 @@ router.post('/note', function(req, res, next) {
     note.text = req.body.text;
     note.save(function(err) {
         if (err){
+            console.log("#############");
+            console.log(err);
+            console.log("#############");
             res.send({
-                message: err,
+                message: err.message,
                 success: false,
             });
         }
@@ -120,6 +144,108 @@ router.post('/note', function(req, res, next) {
             message: 'Note created!',
             success: true,
         });
+    });
+})
+//Product
+router.get('/product', function(req, res, next) {
+    Product.find(
+        function(err, products) {
+            if (err){
+                res.send({
+                    message: err.message,
+                    success: false,
+                });
+            }
+            res.json({
+                message: "Get product",
+                success: true,
+                data: products,
+            });
+    })
+    .sort({code: 1});
+});
+router.get('/product/:id', function(req, res, next) {
+    var id = req.params.id
+    Product.findOne(
+        {_id: id}, 
+        function(err, products) {
+            if (err){
+                res.send({
+                    message: err.message,
+                    success: false,
+                });
+            }
+            res.json({
+                message: "Get product",
+                success: true,
+                data: products,
+            });
+    });
+});
+router.post('/product', function(req, res, next) {
+    var product = new Product();
+    product.name = req.body.name;
+    product.code = req.body.code;
+    product.price = req.body.price;
+    console.log(product.name);
+    product.save(function(err) {
+        if (err){
+            console.log("#############");
+            console.log(err);
+            console.log("#############");
+            res.send({
+                message: err.message,
+                success: false,
+            });
+        }
+        res.json({
+            message: 'Product created!',
+            success: true,
+        });
+    });
+})
+router.delete('/product/:id', function(req, res, next) {
+    var id = req.params.id; 
+    console.log("ID:"+id);
+    Product.remove(
+        {_id: id},
+        function(err) {
+            if (err){
+                console.log("#############");
+                console.log(err);
+                console.log("#############");
+                res.send({
+                    message: err.message,
+                    success: false,
+                });
+            }
+            res.json({
+                message: 'Product Deleted!',
+                success: true,
+            });
+    });
+})
+router.put('/product/:id', function(req, res, next) {
+    var id = req.params.id; 
+    console.log("Edit ID:"+id);
+    console.log(req.body);
+    Product.findOneAndUpdate(
+        {_id: id},
+        req.body,
+        function(err) {
+            if (err){
+                console.log("#############");
+                console.log(err);
+                console.log("#############");
+                res.send({
+                    message: err.message,
+                    success: false,
+                });
+            }
+            res.json({
+                message: 'Product Edited!',
+                success: true,
+            });
     });
 })
 module.exports = router;

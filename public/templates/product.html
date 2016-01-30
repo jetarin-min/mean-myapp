@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1 class="page-header"><i class="glyphicon glyphicon-user"></i>&nbsp Create Product</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="alert alert-danger alert-dismissable" role="alert" ng-show="error">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>Error: </strong>
+                <span>{{error}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="alert alert-success alert-dismissable" role="alert" ng-show="flash">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>Success: </strong>
+                <span>{{flash}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-6">
+            <form>
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" ng-model="product.name" placeholder="name">
+                </div>
+                <div class="form-group">
+                    <label>Code</label>
+                    <input type="text" class="form-control" ng-model="product.code" placeholder="code">
+                </div>
+                <div class="form-group">
+                    <label>Price</label>
+                    <input type="number" class="form-control" ng-model="product.price" placeholder="price">
+                </div>
+                <button class="btn btn-success action-btn" ng-click="create_product()"><i class="glyphicon glyphicon-plus-sign"></i>&nbsp Create</button>
+            </form>
+        </div>
+        <div class="col-sm-3">
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col-xs-12">
+            <table class="table table-bordered">
+                <tr>
+                    <th>Name</th>
+                    <th>Code</th>
+                    <th>Price</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <tr ng-repeat="prod in products">
+                    <td>{{prod.name}}</td>
+                    <td>{{prod.code}}</td>
+                    <td>{{prod.price}}</td>
+                    <td><button class="btn btn-success" ng-click="open_edit_modal(prod._id)">Edit</button></td>
+                    <td><button class="btn btn-danger" ng-click="delete_product(prod._id)">X</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+

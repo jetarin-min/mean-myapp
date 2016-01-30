@@ -4,6 +4,7 @@ angular.module('myApp',
     'appLogin',
     'appUser',
     'appNote',
+    'appProduct',
 ])
 .config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/', {

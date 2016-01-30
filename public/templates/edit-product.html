@@ -1,0 +1,42 @@
+<div class="modal-header">
+    <button type="button" class="close" aria-label="Close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
+    <h3 class="modal-title">Edit Product</h3>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="alert alert-danger alert-dismissible" role="alert" ng-show="error">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>Error: </strong>
+                <span>{{error}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <form>
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" ng-model="product.name" placeholder="name">
+                </div>
+                <div class="form-group">
+                    <label>Code</label>
+                    <input type="text" class="form-control" ng-model="product.code" placeholder="code">
+                </div>
+                <div class="form-group">
+                    <label>Price</label>
+                    <input type="number" class="form-control" ng-model="product.price" placeholder="price">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success pull-left" type="button" ng-click="edit_product()">
+        <i class="glyphicon glyphicon-edit"></i>&nbsp Edit
+    </button>
+    <button class="btn btn-default" type="button" ng-click="cancel()">
+        Cancel
+    </button>
+</div>
+
