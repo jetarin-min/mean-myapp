@@ -17,6 +17,21 @@ var authen = require('./routes/authen');
 
 var app = express();
 
+var socketserver = app.listen(9999);
+var io = require('socket.io').listen(socketserver);
+
+io.on('connection', function(socket){
+    console.log('a user connected');
+    socket.on('disconnect', function(){
+        console.log('user disconnected');
+    });
+    socket.on('send-text', function(text) {
+        console.log(text);
+        io.emit('broadcast-text', {
+            message: text,
+        });
+    });
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

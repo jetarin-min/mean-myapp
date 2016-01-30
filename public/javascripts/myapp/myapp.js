@@ -5,6 +5,7 @@ angular.module('myApp',
     'appUser',
     'appNote',
     'appProduct',
+    'appChat',
 ])
 .config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/', {
