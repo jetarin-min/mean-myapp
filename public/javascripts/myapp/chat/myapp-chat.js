@@ -13,7 +13,7 @@ angular.module('appChat', ['ngRoute', 'ngCookies'])
     });
 }])
 .factory('socket', ['$rootScope', function($rootScope) {
-    var socket = io.connect('http://127.0.0.1:9999');
+    var socket = io.connect('http://188.166.249.56:3009');
         return {
             on: function(eventName, callback){
                 socket.on(eventName, callback);

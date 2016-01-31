@@ -17,7 +17,7 @@ var authen = require('./routes/authen');
 
 var app = express();
 
-var socketserver = app.listen(9999);
+var socketserver = app.listen(3009);
 var io = require('socket.io').listen(socketserver);
 
 io.on('connection', function(socket){

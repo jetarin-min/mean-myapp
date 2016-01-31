@@ -18,8 +18,8 @@
 9 verbose stack     at maybeClose (internal/child_process.js:821:16)
 9 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
 10 verbose pkgid test@0.0.0
-11 verbose cwd /home/jet/node-jet/test
-12 error Linux 3.16.0-30-generic
+11 verbose cwd /home/jet/node-test/mean-myapp
+12 error Linux 3.13.0-57-generic
 13 error argv "/usr/bin/nodejs" "/usr/bin/npm" "start"
 14 error node v4.2.6
 15 error npm  v2.14.12
