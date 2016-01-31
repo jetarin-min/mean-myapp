@@ -51,41 +51,16 @@ router.get('/user', function(req, res, next) {
                 success: false,
             });
         }
-        res.json({
-            message: "Get users",
-            success: true,
-            data: users,
-        });
+        else{
+            res.json({
+                message: "Get users",
+                success: true,
+                data: users,
+            });
+        }
     });
 });
 router.post('/user', function(req, res, next) {
-    /*
-    User.findOne({
-        username: req.body.username,
-    }, function(err, user) {
-        if(user){
-            res.json({
-                message: 'User is already existed!',
-                success: false,
-            });
-        }
-        else{
-            var user = new User();
-            user.username = req.body.username;
-            user.password = req.body.password; //TODO Encrypt-Decrypt password
-            user.admin = true;
-            user.save(function(err) {
-                if (err){
-                    res.send(err);
-                }
-                res.json({
-                    message: 'User created!',
-                    success: true,
-                });
-            });
-        }
-    });
-    */
     var user = new User();
     user.username = req.body.username;
     user.password = req.body.password; //TODO Encrypt-Decrypt password
@@ -99,10 +74,12 @@ router.post('/user', function(req, res, next) {
                 success: false,
             });
         }
-        res.json({
-            message: 'User created!',
-            success: true,
-        });
+        else{
+            res.json({
+                message: 'User created!',
+                success: true,
+            });
+        }
     });
 })
 //Note
@@ -118,11 +95,13 @@ router.get('/note/:uid', function(req, res, next) {
                     success: false,
                 });
             }
-            res.json({
-                message: "Get notes",
-                success: true,
-                data: notes,
-            });
+            else{
+                res.json({
+                    message: "Get notes",
+                    success: true,
+                    data: notes,
+                });
+            }
     })
     .sort({date: -1});
 });
@@ -140,10 +119,12 @@ router.post('/note', function(req, res, next) {
                 success: false,
             });
         }
-        res.json({
-            message: 'Note created!',
-            success: true,
-        });
+        else{
+            res.json({
+                message: 'Note created!',
+                success: true,
+            });
+        }
     });
 })
 //Product
@@ -156,11 +137,13 @@ router.get('/product', function(req, res, next) {
                     success: false,
                 });
             }
-            res.json({
-                message: "Get product",
-                success: true,
-                data: products,
-            });
+            else{
+                res.json({
+                    message: "Get product",
+                    success: true,
+                    data: products,
+                });
+            }
     })
     .sort({code: 1});
 });
@@ -175,11 +158,13 @@ router.get('/product/:id', function(req, res, next) {
                     success: false,
                 });
             }
-            res.json({
-                message: "Get product",
-                success: true,
-                data: products,
-            });
+            else{
+                res.json({
+                    message: "Get product",
+                    success: true,
+                    data: products,
+                });
+            }
     });
 });
 router.post('/product', function(req, res, next) {
@@ -198,10 +183,12 @@ router.post('/product', function(req, res, next) {
                 success: false,
             });
         }
-        res.json({
-            message: 'Product created!',
-            success: true,
-        });
+        else{
+            res.json({
+                message: 'Product created!',
+                success: true,
+            });
+        }
     });
 })
 router.delete('/product/:id', function(req, res, next) {
@@ -219,10 +206,12 @@ router.delete('/product/:id', function(req, res, next) {
                     success: false,
                 });
             }
-            res.json({
-                message: 'Product Deleted!',
-                success: true,
-            });
+            else{
+                res.json({
+                    message: 'Product Deleted!',
+                    success: true,
+                });
+            }
     });
 })
 router.put('/product/:id', function(req, res, next) {
@@ -242,10 +231,12 @@ router.put('/product/:id', function(req, res, next) {
                     success: false,
                 });
             }
-            res.json({
-                message: 'Product Edited!',
-                success: true,
-            });
+            else{
+                res.json({
+                    message: 'Product Edited!',
+                    success: true,
+                });
+            }
     });
 })
 module.exports = router;
