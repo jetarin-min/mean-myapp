@@ -42,6 +42,9 @@ angular.module('appProduct', ['ngRoute', 'ngCookies','ngAnimate','ui.bootstrap']
                 $scope.flash = response.message;
                 $scope.error = "";
                 load_products();
+                $scope.product.name = "";
+                $scope.product.code = "";
+                $scope.product.price = "";
             }
             else{
                 $scope.error = response.message;
