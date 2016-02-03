@@ -15,6 +15,10 @@ var ui = require('./routes/ui');
 var api = require('./routes/api');
 var authen = require('./routes/authen');
 
+//Simple
+var simple_ui = require('./routes/simple_ui');
+var simple_api = require('./routes/simple_api');
+
 var app = express();
 
 var socketserver = app.listen(3009);
@@ -50,6 +54,9 @@ app.use('/', routes);
 app.use('/ui', ui);
 app.use('/api', api);
 app.use('/authen', authen);
+//Simple
+app.use('/simple_ui', simple_ui);
+app.use('/simple_api', simple_api);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
