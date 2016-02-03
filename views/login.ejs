@@ -2,14 +2,23 @@
 <html>
 <head>
     <title>My App UI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.min.css'>
     <link rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap-theme.min.css'>
     <link rel='stylesheet' href='/stylesheets/mystyle.css'>
+    <!--
+    <link rel='stylesheet' href='/stylesheets/material-input.css'>
+-->
 </head>
 <body>
 <div class="login-container">
     <div class="login-logo">
         <img src="/images/logo.png">
+    </div>
+    <div class="login-form">
+        <input class="rms-input" type="text" placeholder="Username">
+        <input class="rms-input" type="password" placeholder="Password">
+        <button class="btn rms-btn-primary">LOGIN</button>
     </div>
 </div>
 <script src='/bower_components/angular/angular.js'></script>

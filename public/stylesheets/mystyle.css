@@ -14,9 +14,46 @@ div.login-container {
 div.login-logo {
     padding-top: 30px;
     text-align: center;
-    height: 200px;
+    height: 170px;
 }    
-img.login-log {
+div.login-logo > img {
     height: 100%;
     width: auto;
+}
+div.login-form {
+    padding: 20px 25px 0px;
+    text-align: center;
+}
+div.login-form>button.btn {
+    margin-top: 20px;
+    width: 40%;
+}
+/*INPUT*/
+input.rms-input {
+    border: none;
+    margin: 10px 0px;
+    padding: 10px 0;
+    border-bottom: solid 1px #8E49E8;
+    width: 100%;
+    display: block;
+}
+
+input.rms-input:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+/*BUTTON*/
+.rms-btn-primary {
+    color: #FFFFFF;
+    background-color: #8E49E8;
+}
+.rms-btn-primary:hover, .rms-btn-primary:active, .rms-btn-primary:focus {
+    color: #FFFFFF;
+    background-color: #A678E2;
+
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
 }
