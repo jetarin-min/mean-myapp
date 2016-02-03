@@ -1,5 +1,6 @@
-body {
-    background: #8E49E8;
+* {
+    font-size: 100%;
+    font-family: 'Roboto', sans-serif;
 }
 /*LOADING OVERLAY*/
 .loading-overlay {
@@ -31,6 +32,39 @@ body {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+/*NAVBAR*/
+.navbar-rms{
+    background: #8E49E8;
+    height: 56px;
+    border: 0;
+}
+.navbar-logo{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.navbar-logo>img{
+    height: 100%;
+}
+.navbar-rms .navbar-brand, .navbar-rms .navbar-brand:hover, .navbar-rms .navbar-brand:focus, .navbar-rms .navbar-brand:active {
+    color: #FFFFFF;
+}
+.navbar-default .navbar-nav>li>a, .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:active{
+    color: #FFFFFF;
+}
+/*PAGE*/
+.rms-page-container{
+    padding-top: 75px;
+    padding-bottom: 50px;
+}
+.rms-box-container{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 3px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    background: #FFFFFF;
+}
 /*LOGIN*/
 div.login-container {
     background: #FFFFFF;
@@ -58,6 +92,10 @@ div.login-form {
 div.login-form>button.btn {
     margin-top: 20px;
     width: 40%;
+}
+/*FORM*/
+form.rms-form {
+    padding-bottom: 30px;
 }
 /*INPUT*/
 input.rms-input {
@@ -102,6 +140,20 @@ input.rms-input:focus {
 .rms-btn-default:hover, .rms-btn-default:active, .rms-btn-default:focus {
     color: #000000;
     background-color: #E5E5E5;
+
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+}
+.rms-btn-danger {
+    color: #FFFFFF;
+    background-color: #FF4040;
+    box-shadow: rgba(0, 0, 0, 0.156863) 0px 2px 5px 0px, rgba(0, 0, 0, 0.117647) 0px 2px 10px 0px;
+}
+.rms-btn-danger:hover, .rms-btn-danger:active, .rms-btn-danger:focus {
+    color: #FFFFFF;
+    background-color: #FF6666;
 
     -moz-transition: all .2s ease-in;
     -o-transition: all .2s ease-in;
