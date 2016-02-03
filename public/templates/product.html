@@ -53,22 +53,24 @@
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <table class="table table-striped">
-                    <tr>
-                        <th>Name</th>
-                        <th>Code</th>
-                        <th>Price</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
-                    <tr ng-repeat="prod in products">
-                        <td>{{prod.name}}</td>
-                        <td>{{prod.code}}</td>
-                        <td>{{prod.price}}</td>
-                        <td><button class="btn rms-btn-default" ng-click="open_edit_modal(prod._id)">EDIT</button></td>
-                        <td><button class="btn rms-btn-danger" ng-click="delete_product(prod._id)">DELETE</button></td>
-                    </tr>
-                </table>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <tr>
+                            <th>Name</th>
+                            <th>Code</th>
+                            <th>Price</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                        <tr ng-repeat="prod in products">
+                            <td>{{prod.name}}</td>
+                            <td>{{prod.code}}</td>
+                            <td>{{prod.price}}</td>
+                            <td><button class="btn rms-btn-default" ng-click="open_edit_modal(prod._id)">EDIT</button></td>
+                            <td><button class="btn rms-btn-danger" ng-click="delete_product(prod._id)">DELETE</button></td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
