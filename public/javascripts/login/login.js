@@ -3,7 +3,6 @@ angular.module('LoginApp',['NotifyApp'])
     $scope.init = function() {
         console.log("Login Initializing...");
         $rootScope.error = "";
-        $rootScope.isLoading = false;
     }
     $scope.init();
 

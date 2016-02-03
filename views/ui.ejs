@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
 <head>
-    <title>My App UI</title>
+    <title>RMS Application</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.min.css'>
     <link rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap-theme.min.css'>
@@ -10,6 +10,9 @@
     <link rel='stylesheet' href='/stylesheets/mystyle.css'>
 </head>
 <body>
+<div class="loading-overlay" ng-show="isLoading">
+    <div class="loader"></div>
+</div>
 <nav class="navbar navbar-default navbar-fixed-top navbar-rms">
     <div class="container-fluid">
         <div class="navbar-header">

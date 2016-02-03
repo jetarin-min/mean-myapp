@@ -12,8 +12,9 @@ angular.module('appProduct', ['ngRoute', 'ngCookies','ngAnimate','ui.bootstrap']
         templateUrl: '/templates/product.html',
     });
 }])
-.controller('productController', function($scope, $location, $http, $cookies, $uibModal) {
+.controller('productController', function($scope, $location, $http, $cookies, $uibModal,$rootScope) {
     function load_products(){
+        $rootScope.isLoading = true;
         $http.get('/api/product').success(function(response){
             if(response.success){
                 $scope.products = response.data;
@@ -21,6 +22,7 @@ angular.module('appProduct', ['ngRoute', 'ngCookies','ngAnimate','ui.bootstrap']
             else {
                 $scope.error = response.message;
             } 
+            $rootScope.isLoading = false;
         });
     }
     $scope.init = function() {
@@ -33,6 +35,7 @@ angular.module('appProduct', ['ngRoute', 'ngCookies','ngAnimate','ui.bootstrap']
 
 
     $scope.create_product = function() {
+        $rootScope.isLoading = true;
         $http.post('/api/product', $scope.product).success(function(response){
             console.log(response);
             if(response.success){
@@ -44,10 +47,12 @@ angular.module('appProduct', ['ngRoute', 'ngCookies','ngAnimate','ui.bootstrap']
                 $scope.error = response.message;
                 $scope.flash = "";
             }
+            $rootScope.isLoading = false;
         });
     };
 
     $scope.delete_product = function(id) {
+        $rootScope.isLoading = true;
         $http.delete('/api/product/'+id).success(function(response){
             console.log(response);
             if(response.success){
@@ -59,6 +64,7 @@ angular.module('appProduct', ['ngRoute', 'ngCookies','ngAnimate','ui.bootstrap']
                 $scope.error = response.message;
                 $scope.flash = "";
             }
+            $rootScope.isLoading = false;
         });
     };
     $scope.open_edit_modal = function (id) {
@@ -83,8 +89,9 @@ angular.module('appProduct', ['ngRoute', 'ngCookies','ngAnimate','ui.bootstrap']
         });
    }
 })
-.controller("editProductController", function ($scope, $http, $uibModalInstance, id) {
+.controller("editProductController", function ($scope, $http, $uibModalInstance, id, $rootScope) {
     function load_product(get_id){
+        $rootScope.isLoading = true;
         $http.get('/api/product/'+get_id).success(function(response){
             if(response.success){
                 console.log(response.data);
@@ -93,6 +100,7 @@ angular.module('appProduct', ['ngRoute', 'ngCookies','ngAnimate','ui.bootstrap']
             else {
                 $scope.error = response.message;
             } 
+            $rootScope.isLoading = false;
         });
     }
     $scope.init = function(){
@@ -105,6 +113,7 @@ angular.module('appProduct', ['ngRoute', 'ngCookies','ngAnimate','ui.bootstrap']
         $uibModalInstance.dismiss('cancel');
     }
     $scope.edit_product = function() {
+        $rootScope.isLoading = true;
         var body = {
             "name": $scope.product.name,
             "code": $scope.product.code,
@@ -119,6 +128,7 @@ angular.module('appProduct', ['ngRoute', 'ngCookies','ngAnimate','ui.bootstrap']
             else {
                 $scope.error = response.message;
             } 
+            $rootScope.isLoading = false;
         });
     }
 });

@@ -11,7 +11,7 @@
     right:0;
     background-color:#000000;
     opacity:0.8;
-    z-index:1001;
+    z-index:9001;
 }
 .loader {
     border: 12px solid #f3f3f3; /* Light grey */
