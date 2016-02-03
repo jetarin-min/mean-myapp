@@ -1,5 +1,5 @@
-angular.module('LoginApp',[])
-.controller('LoginCtrl', function($rootScope, $scope, $http) {
+angular.module('LoginApp',['NotifyApp'])
+.controller('LoginCtrl', function($rootScope, $scope, $http, notify) {
     $scope.init = function() {
         console.log("Login Initializing...");
         $rootScope.error = "";
@@ -24,7 +24,7 @@ angular.module('LoginApp',[])
             }
             else{
                 $rootScope.isLoading = false;
-                console.log(response.message);
+                notify.error(response.message);
                 $rootScope.error = response.message;
             }
         });

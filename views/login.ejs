@@ -6,15 +6,11 @@
     <link rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.min.css'>
     <link rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap-theme.min.css'>
     <link rel='stylesheet' href='/stylesheets/mystyle.css'>
-    <!--
-    <link rel='stylesheet' href='/stylesheets/material-input.css'>
--->
 </head>
 <body>
 <div class="loading-overlay" ng-show="isLoading">
     <div class="loader"></div>
 </div>
-{{error}}
 <div class="login-container" ng-controller="LoginCtrl">
     <div class="login-logo">
         <img src="/images/logo.png">
@@ -27,7 +23,10 @@
 </div>
 <script src='/bower_components/angular/angular.js'></script>
 <script src='/bower_components/angular-route/angular-route.js'></script>
+<script src='/bower_components/angular-animate/angular-animate.js'></script>
 <script src='/bower_components/angular-cookies/angular-cookies.js'></script>
+<script src='/bower_components/angular-bootstrap/ui-bootstrap-tpls.js'></script>
 <script src='/javascripts/login/login.js'></script>
+<script src='/javascripts/notify/notify.js'></script>
 </body>
 </html>
