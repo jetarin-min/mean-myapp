@@ -15,6 +15,8 @@ var ui = require('./routes/ui');
 var api = require('./routes/api');
 var authen = require('./routes/authen');
 
+var login = require('./routes/login');
+
 var app = express();
 
 var socketserver = app.listen(9999);
@@ -50,6 +52,8 @@ app.use('/', routes);
 app.use('/ui', ui);
 app.use('/api', api);
 app.use('/authen', authen);
+
+app.use('/login', login);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
