@@ -4,7 +4,7 @@ angular.module('appNote', ['ngRoute', 'ngCookies'])
         resolve: {
             "check": function($cookies, $location){
                 if(!$cookies.get("token")){
-                    $location.path("/login");
+                    window.location.href = "/login";
                 }
             }
         },

@@ -4,7 +4,7 @@ angular.module('appProduct', ['ngRoute', 'ngCookies','ngAnimate','ui.bootstrap']
         resolve: {
             "check": function($cookies, $location){
                 if(!$cookies.get("token")){
-                    $location.path("/login");
+                    window.location.href = "/login";
                 }
             }
         },

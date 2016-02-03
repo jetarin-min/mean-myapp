@@ -12,7 +12,7 @@ angular.module('myApp',
         resolve: {
             "check": function($cookies, $location) {
                 if(!$cookies.get("user_id")) {
-                    $location.path("/login");
+                    window.location.href = "/login";
                 }
                 else {
                     $location.path("/product");
