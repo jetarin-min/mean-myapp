@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="LoginApp">
 <head>
     <title>My App UI</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -11,21 +11,23 @@
 -->
 </head>
 <body>
-<div class="login-container">
+<div class="loading-overlay" ng-show="isLoading">
+    <div class="loader"></div>
+</div>
+{{error}}
+<div class="login-container" ng-controller="LoginCtrl">
     <div class="login-logo">
         <img src="/images/logo.png">
     </div>
     <div class="login-form">
-        <input class="rms-input" type="text" placeholder="Username">
-        <input class="rms-input" type="password" placeholder="Password">
-        <button class="btn rms-btn-primary">LOGIN</button>
+        <input class="rms-input" type="text" placeholder="Username" ng-model="username">
+        <input class="rms-input" type="password" placeholder="Password" ng-model="password">
+        <button class="btn rms-btn-primary" ng-click="login()">LOGIN</button>
     </div>
 </div>
 <script src='/bower_components/angular/angular.js'></script>
 <script src='/bower_components/angular-route/angular-route.js'></script>
 <script src='/bower_components/angular-cookies/angular-cookies.js'></script>
-<!--
 <script src='/javascripts/login/login.js'></script>
--->
 </body>
 </html>
