@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple</title>
+    <link rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap-theme.min.css'>
+</head>
+<body>
+<div class="container">
+    <h1>Simple App</h1>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label>Name</label>
+                <input class="form-control" type="text" placeholder="Name" id="name-input"/>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label>Email</label>
+                <input class="form-control" type="text" placeholder="Email" id="email-input"/>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label>Phone</label>
+                <input class="form-control" type="text" placeholder="Phone" id="phone-input"/>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <button class="btn btn-success" id="add-btn">Add</button>
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col-xs-12">
+            <table class="table" id="contact-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            <script id="contact-template" type="x-handlebars-template">
+                    {{#each this}}
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>{{email}}</td>
+                        <td>{{phone}}</td>
+                    </tr>
+                    {{/each}}
+            </script>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/bower_components/handlebars/handlebars.min.js"></script>
+<script src="/javascripts/simple/app.js"></script>
+</body>
+</html>
