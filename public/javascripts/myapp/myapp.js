@@ -29,7 +29,7 @@ angular.module('myApp',
                 $cookies.remove("username");
                 $cookies.remove("userid");
                 $cookies.remove("token");
-                $location.path("/login");
+                window.location.href="/login";
             }
         }
     });

@@ -66,7 +66,7 @@ angular.module('appProduct', ['ngRoute', 'ngCookies','ngAnimate','ui.bootstrap']
             animation: true,
             templateUrl: '/templates/edit-product.html',
             controller: 'editProductController',
-            size: 'lg',
+            size: 'md',
             resolve: {
                 id: function () {
                     return id;

@@ -17,26 +17,26 @@
             <form>
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="text" class="form-control" ng-model="product.name" placeholder="name">
+                    <input type="text" class="rms-input" ng-model="product.name" placeholder="name">
                 </div>
                 <div class="form-group">
                     <label>Code</label>
-                    <input type="text" class="form-control" ng-model="product.code" placeholder="code">
+                    <input type="text" class="rms-input" ng-model="product.code" placeholder="code">
                 </div>
                 <div class="form-group">
                     <label>Price</label>
-                    <input type="number" class="form-control" ng-model="product.price" placeholder="price">
+                    <input type="number" class="rms-input" ng-model="product.price" placeholder="price">
                 </div>
             </form>
         </div>
     </div>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-success pull-left" type="button" ng-click="edit_product()">
-        <i class="glyphicon glyphicon-edit"></i>&nbsp Edit
+    <button class="btn rms-btn-primary" type="button" ng-click="edit_product()">
+        EDIT
     </button>
-    <button class="btn btn-default" type="button" ng-click="cancel()">
-        Cancel
+    <button class="btn rms-btn-default pull-left" type="button" ng-click="cancel()">
+        CANCEL
     </button>
 </div>
 

@@ -32,6 +32,10 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+/*MODAL*/
+.modal-content{
+    border-radius: 3px;
+}
 /*NAVBAR*/
 .navbar-rms{
     background: #8E49E8;
