@@ -14,6 +14,7 @@ var routes = require('./routes/index');
 var ui = require('./routes/ui');
 var api = require('./routes/api');
 var authen = require('./routes/authen');
+var login = require('./routes/login');
 
 //Simple
 var simple_ui = require('./routes/simple_ui');
@@ -57,6 +58,8 @@ app.use('/authen', authen);
 //Simple
 app.use('/simple_ui', simple_ui);
 app.use('/simple_api', simple_api);
+
+app.use('/login', login);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
