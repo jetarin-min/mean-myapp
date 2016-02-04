@@ -20,6 +20,20 @@
         right: 0;
     }
 }
+@media screen and (min-width: 768px){ 
+    .nav-side-bar{
+        position: fixed;
+        top: 56px;
+        bottom: 0;
+        background: #FFFFFF;
+        z-index: 500;
+        width: 230px;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        right: -250px;
+        transition:right .4s;
+        padding-top: 20px
+    }
+}
 .navbar-toggle {
     background-color: #DDDDDD;
 }
