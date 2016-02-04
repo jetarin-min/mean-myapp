@@ -14,7 +14,6 @@
         box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
         right: -250px;
         transition:right .4s;
-        padding-top: 20px
     }
     .nav-side-bar.in{
         right: 0;
@@ -31,11 +30,26 @@
         box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
         right: -250px;
         transition:right .4s;
-        padding-top: 20px
     }
 }
 .navbar-toggle {
     background-color: #DDDDDD;
+}
+ul.nav.navbar-nav.side-menu>li>a{
+    color: #000000;
+}
+ul.nav.navbar-nav.side-menu>li>a:hover, ul.nav.navbar-nav.side-menu>li>a:active, ul.nav.navbar-nav.side-menu>li>a:focus{
+    color: #FFFFFF;
+    background-color: #A678E2;
+
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+}
+ul.nav.navbar-nav.side-menu>li>a.active {
+    color: #FFFFFF;
+    background-color: #A678E2;
 }
 /*LOADING OVERLAY*/
 .loading-overlay {
