@@ -38,4 +38,7 @@ angular.module('myApp',
     $scope.toggle_menu = function(){
         $rootScope.isToggleMenu = !$rootScope.isToggleMenu;
     }
+    $scope.toggle_chat = function(){
+        $rootScope.isChat = !$rootScope.isChat;
+    }
 });

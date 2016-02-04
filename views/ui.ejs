@@ -22,13 +22,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             </button>
+            <button type="button" class="navbar-toggle collapsed toggle-chat" ng-click="toggle_chat()">
+                <i class="glyphicon glyphicon-envelope"></i>
+            </button>
             <a class="navbar-brand navbar-logo" href="#"><img src="/images/logo-small.png"></a>
         </div>
         <div class="collapse navbar-collapse side-collapse">
             <ul class="nav navbar-nav">
                 <li><a href="#/product">PRODUCT</a></li>
                 <li><a href="#/note">NOTE</a></li>
-                <li><a href="#/chat">CHAT ROOM</a></li>
+                <li><a href ng-click="toggle_chat()">CHAT ROOM</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#/user">USER</a></li>
@@ -42,7 +45,6 @@
         <ul class="nav navbar-nav side-menu">
             <li><a href="#/product">PRODUCT</a></li>
             <li><a href="#/note">NOTE</a></li>
-            <li><a href="#/chat">CHAT ROOM</a></li>
         </ul>
         <hr/>
         <ul class="nav navbar-nav side-menu">
@@ -52,6 +54,19 @@
     </nav>
 </div>
 <div ng-view></div>
+<div class="chatbox-container" ng-class="{'in':isChat}">
+    <div class="chatbox-header">
+        <button class="btn btn-sm rms-round-btn rms-btn-danger pull-right"><i class="glyphicon glyphicon-remove"></i></button>
+    </div>
+    <div class="chatbox-form">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for...">
+            <span class="input-group-btn">
+                <button class="btn rms-btn-primary" type="button">SEND</button>
+            </span>
+        </div>
+    </div>
+</div>
 <script src='/bower_components/angular/angular.js'></script>
 <script src='/bower_components/angular-route/angular-route.js'></script>
 <script src='/bower_components/angular-cookies/angular-cookies.js'></script>
