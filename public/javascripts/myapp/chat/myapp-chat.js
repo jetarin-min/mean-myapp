@@ -23,7 +23,7 @@ angular.module('appChat', ['ngRoute', 'ngCookies'])
             }
         };
 }])
-.controller('chatController', function($scope, socket, $cookies) {
+.controller('chatController', function($scope, $rootScope, socket, $cookies) {
     $rootScope.isToggleMenu = false;
     $scope.chats = [];
     $scope.send_text = function() {
