@@ -19,7 +19,7 @@
     border-radius: 50%;
     width: 80px;
     height: 80px;
-    animation: spin 2s linear infinite;
+    -webkit-animation: spin 2s linear infinite;
     z-index:1002;
     position: fixed;
     top: 50%;
@@ -28,9 +28,19 @@
     margin-left: -40px;
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+@-webkit-keyframes spin {
+    0% { 
+        transform: rotate(0deg); 
+        -ms-transform: rotate(0deg); /* IE 9 */
+        -moz-transform: rotate(0deg); /* IE 9 */
+        -webkit-transform: rotate(0deg); /* Safari */
+    }
+    100% { 
+        transform: rotate(360deg);
+        -ms-transform: rotate(360deg); /* IE 9 */
+        -moz-transform: rotate(360deg); /* IE 9 */
+        -webkit-transform: rotate(360deg); /* Safari */
+    }
 }
 /*MODAL*/
 .modal-content{
@@ -99,6 +109,7 @@ div.login-form>button.btn {
 }
 /*FORM*/
 form.rms-form {
+    padding-top: 10px;
     padding-bottom: 30px;
 }
 /*INPUT*/
@@ -109,6 +120,9 @@ input.rms-input {
     border-bottom: solid 1px #8E49E8;
     width: 100%;
     display: block;
+    /*safari border radius*/
+    -webkit-appearance: none;
+    border-radius: 0;
 }
 
 input.rms-input:focus {
@@ -163,4 +177,18 @@ input.rms-input:focus {
     -o-transition: all .2s ease-in;
     -webkit-transition: all .2s ease-in;
     transition: all .2s ease-in;
+}
+/*ALERT*/
+.rms-alert-danger {
+    border-radius: 3px;
+    border: 0;
+    color: #FFFFFF;
+    background: #FF6666;
+}
+.rms-alert-success {
+    border-radius: 3px;
+    border: 0;
+    color: #FFFFFF;
+    background: #32AB89;
+    /*background: #00966C;*/
 }

@@ -12,8 +12,9 @@ angular.module('appNote', ['ngRoute', 'ngCookies'])
         templateUrl: '/templates/note.html',
     });
 }])
-.controller('noteController', function($scope, $location, $http, $cookies) {
+.controller('noteController', function($scope, $rootScope, $location, $http, $cookies) {
     function load_notes(){
+        $rootScope.isLoading = true;
         var userid = $cookies.get('userid');
         $http.get('/api/note/'+userid).success(function(response){
             if(response.success){
@@ -22,10 +23,15 @@ angular.module('appNote', ['ngRoute', 'ngCookies'])
             else {
                 $scope.error = response.message;
             } 
+            $rootScope.isLoading = false;
         });
     }
     $scope.init = function() {
         console.log("Note Initializing...");
+        $scope.note = { //TODO
+            text: "",
+            uid: "",
+        }
         $scope.error = "";
         $scope.flash = "";
         load_notes();
@@ -34,6 +40,7 @@ angular.module('appNote', ['ngRoute', 'ngCookies'])
 
 
     $scope.create_note = function() {
+        $rootScope.isLoading = true;
         $scope.note.uid = $cookies.get('userid');
         $http.post('/api/note', $scope.note).success(function(response){
             console.log(response);
@@ -41,11 +48,14 @@ angular.module('appNote', ['ngRoute', 'ngCookies'])
                 $scope.flash = response.message;
                 $scope.error = "";
                 load_notes();
+                $scope.note.text = "";
+                $scope.note.uid = "";
             }
             else{
                 $scope.error = response.message;
                 $scope.flash = "";
             }
+            $rootScope.isLoading = false;
         });
     };
 

@@ -12,8 +12,9 @@ angular.module('appUser', ['ngRoute', 'ngCookies'])
         templateUrl: '/templates/user.html',
     });
 }])
-.controller('userController', function($scope, $location, $http) {
+.controller('userController', function($scope, $rootScope, $location, $http) {
     function load_users(){
+        $rootScope.isLoading = true;
         $http.get('/api/user').success(function(response){
             if(response.success){
                 $scope.users = response.data;
@@ -21,6 +22,7 @@ angular.module('appUser', ['ngRoute', 'ngCookies'])
             else {
                 $scope.error = response.message;
             } 
+            $rootScope.isLoading = false;
         });
     }
     $scope.init = function() {
@@ -32,17 +34,21 @@ angular.module('appUser', ['ngRoute', 'ngCookies'])
     $scope.init();
 
     $scope.create_user = function() {
+        $rootScope.isLoading = true;
         $http.post('/api/user', $scope.user).success(function(response){
             console.log(response);
             if(response.success){
                 $scope.flash = response.message;
                 $scope.error = "";
                 load_users();
+                $scope.user.username = "";
+                $scope.user.password = "";
             }
             else{
                 $scope.error = response.message;
                 $scope.flash = "";
             }
+            $rootScope.isLoading = false;
         });
     };
 

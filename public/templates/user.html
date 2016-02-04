@@ -1,57 +1,65 @@
 <div class="container rms-page-container">
-    <div class="row">
-        <div class="col-xs-12">
-            <h1 class="page-header"><i class="glyphicon glyphicon-user"></i>&nbsp Create User</h1>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="alert alert-danger alert-dismissable" role="alert" ng-show="error">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>Error: </strong>
-                <span>{{error}}</span>
+    <div class="rms-box-container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="page-header"></i>&nbsp CREATE USER</h2>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="alert alert-success alert-dismissable" role="alert" ng-show="flash">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>Success: </strong>
-                <span>{{flash}}</span>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="alert alert-danger alert-dismissable rms-alert-danger" role="alert" ng-show="error">
+                    <strong>Error : </strong>
+                    <span>{{error}}</span>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-3">
-        </div>
-        <div class="col-sm-6">
-            <form>
-                <div class="form-group">
-                    <label>Username</label>
-                    <input type="text" class="form-control" ng-model="user.username" placeholder="Username">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="alert alert-success alert-dismissable rms-alert-success" role="alert" ng-show="flash">
+                    <strong>Success : </strong>
+                    <span>{{flash}}</span>
                 </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" class="form-control" ng-model="user.password" placeholder="Password">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+            </div>
+            <div class="col-sm-6">
+                <form class="rms-form">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" class="rms-input" ng-model="user.username" placeholder="text">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="rms-input" ng-model="user.password" placeholder="text">
+                    </div>
+                    <button class="btn rms-btn-primary pull-right" ng-click="create_user()"></i>CREATE</button>
+                </form>
+            </div>
+            <div class="col-sm-3">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="page-header"></i>&nbsp USER DATA</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <tr>
+                            <th>Username</th>
+                            <th>Delete</th>
+                        </tr>
+                        <tr ng-repeat="user in users">
+                            <td>{{user.username}}</td>
+                            <td><button class="btn rms-btn-danger" ng-click="delete_user(user._id)">DELETE</button></td>
+                        </tr>
+                    </table>
                 </div>
-                <button class="btn btn-success action-btn" ng-click="create_user()"><i class="glyphicon glyphicon-plus-sign"></i>&nbsp Create</button>
-            </form>
-        </div>
-        <div class="col-sm-3">
-        </div>
-    </div>
-    <hr/>
-    <div class="row">
-        <div class="col-xs-12">
-            <table class="table table-bordered">
-                <tr>
-                    <th>Username</th>
-                </tr>
-                <tr ng-repeat="user in users">
-                    <td>{{user.username}}</td>
-                </tr>
-            </table>
+            </div>
         </div>
     </div>
 </div>

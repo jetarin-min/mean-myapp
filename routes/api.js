@@ -106,7 +106,9 @@ router.get('/note/:uid', function(req, res, next) {
     .sort({date: -1});
 });
 router.post('/note', function(req, res, next) {
+    console.log("NOTEEEEEEEEEEEEEEEEEEEEEEEE");
     var note = new Note();
+    console.log("BODY"+req.body);
     note.uid = req.body.uid;
     note.text = req.body.text;
     note.save(function(err) {
