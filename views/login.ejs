@@ -3,6 +3,17 @@
 <head>
     <title>RMS Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Fav and touch icons -->
+    <link rel="icon" sizes="144x144" href="/images/logo144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/logo144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/logo114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/logo72.png">
+    <link rel="apple-touch-icon-precomposed" href="/images/logo57.png">
+    <link rel="shortcut icon" href="/images/favicon.ico"/>
+
     <link rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.min.css'>
     <link rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap-theme.min.css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
@@ -18,9 +29,11 @@
         <img src="/images/logo.png">
     </div>
     <div class="login-form">
-        <input class="rms-input" type="text" placeholder="Username" ng-model="username">
-        <input class="rms-input" type="password" placeholder="Password" ng-model="password">
-        <button class="btn rms-btn-primary" ng-click="login()">LOGIN</button>
+        <form ng-submit="login()">
+            <input class="rms-input" type="text" placeholder="Username" ng-model="username">
+            <input class="rms-input" type="password" placeholder="Password" ng-model="password">
+            <button class="btn rms-btn-primary" ng-click="login()">LOGIN</button>
+        </form>
     </div>
 </div>
 <script src='/bower_components/angular/angular.js'></script>
