@@ -26,6 +26,7 @@ angular.module('appUser', ['ngRoute', 'ngCookies'])
         });
     }
     $scope.init = function() {
+        $rootScope.isToggleMenu = false;
         console.log("User Initializing...");
         $scope.error = "";
         $scope.flash = "";

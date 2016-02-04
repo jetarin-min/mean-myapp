@@ -26,6 +26,7 @@ angular.module('appProduct', ['ngRoute', 'ngCookies','ngAnimate','ui.bootstrap']
         });
     }
     $scope.init = function() {
+        $rootScope.isToggleMenu = false;
         console.log("Produt Initializing...");
         $scope.error = "";
         $scope.flash = "";

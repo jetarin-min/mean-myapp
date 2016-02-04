@@ -34,3 +34,8 @@ angular.module('myApp',
         }
     });
 }])
+.controller('MenuCtrl', function($scope, $rootScope){
+    $scope.toggle_menu = function(){
+        $rootScope.isToggleMenu = !$rootScope.isToggleMenu;
+    }
+});

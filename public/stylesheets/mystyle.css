@@ -2,6 +2,27 @@
     font-size: 100%;
     font-family: 'Roboto', sans-serif;
 }
+/*NAV MENU*/
+@media screen and (max-width: 767px){ 
+    .nav-side-bar{
+        position: fixed;
+        top: 56px;
+        bottom: 0;
+        background: #FFFFFF;
+        z-index: 500;
+        width: 230px;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        right: -250px;
+        transition:right .4s;
+        padding-top: 20px
+    }
+    .nav-side-bar.in{
+        right: 0;
+    }
+}
+.navbar-toggle {
+    background-color: #DDDDDD;
+}
 /*LOADING OVERLAY*/
 .loading-overlay {
     position:fixed;

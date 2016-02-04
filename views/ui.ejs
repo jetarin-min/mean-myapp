@@ -13,10 +13,10 @@
 <div class="loading-overlay" ng-show="isLoading">
     <div class="loader"></div>
 </div>
-<nav class="navbar navbar-default navbar-fixed-top navbar-rms">
+<nav class="navbar navbar-default navbar-fixed-top navbar-rms" ng-controller="MenuCtrl">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <button type="button" class="navbar-toggle collapsed" ng-click="toggle_menu()">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -24,7 +24,7 @@
             </button>
             <a class="navbar-brand navbar-logo" href="#"><img src="/images/logo-small.png"></a>
         </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse side-collapse">
             <ul class="nav navbar-nav">
                 <li><a href="#/product">PRODUCT</a></li>
                 <li><a href="#/note">NOTE</a></li>
@@ -37,6 +37,18 @@
         </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>  
+<div class="nav-side-bar" ng-class="{'in':isToggleMenu}">
+    <ul class="side-menu menu-top">
+        <li><a href="#/product">PRODUCT</a></li>
+        <li><a href="#/note">NOTE</a></li>
+        <li><a href="#/chat">CHAT ROOM</a></li>
+    </ul>
+    <hr/>
+    <ul class="side-menu menu-bot">
+        <li><a href="#/user">USER</a></li>
+        <li><a href="#/logout">LOGOUT</a></li>
+    </ul>
+</div>
 <div ng-view></div>
 <script src='/bower_components/angular/angular.js'></script>
 <script src='/bower_components/angular-route/angular-route.js'></script>

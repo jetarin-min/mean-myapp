@@ -27,6 +27,7 @@ angular.module('appNote', ['ngRoute', 'ngCookies'])
         });
     }
     $scope.init = function() {
+        $rootScope.isToggleMenu = false;
         console.log("Note Initializing...");
         $scope.note = { //TODO
             text: "",

@@ -24,6 +24,7 @@ angular.module('appChat', ['ngRoute', 'ngCookies'])
         };
 }])
 .controller('chatController', function($scope, socket, $cookies) {
+    $rootScope.isToggleMenu = false;
     $scope.chats = [];
     $scope.send_text = function() {
         socket.emit('send-text', $cookies.get("username")+": "+$scope.chat.text);
