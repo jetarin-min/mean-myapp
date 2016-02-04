@@ -1,11 +1,9 @@
 angular.module('myApp',
     ['ngCookies',
     'ngRoute',
-    'appLogin',
     'appUser',
     'appNote',
     'appProduct',
-    'appChat',
 ])
 .config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/', {
